@@ -12,6 +12,7 @@ class SinglePost extends Component {
     content: ''
   };
 
+  
   componentDidMount() {
     const postId = this.props.match.params.postId;
     fetch('http://localhost:8080/feed/post/' + postId, {
@@ -33,7 +34,6 @@ class SinglePost extends Component {
           date: new Date(resData.post.createdAt).toLocaleDateString('en-US'),
           content: resData.post.content
         });
-        console.log(this.state.image)
       })
       .catch(err => {
         console.log(err);
